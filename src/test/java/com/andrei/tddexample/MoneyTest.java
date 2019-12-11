@@ -11,51 +11,36 @@ import org.junit.jupiter.api.Test;
  */
 public class MoneyTest {
 
-    @DisplayName("Dollar.times(2) test.")
+    @DisplayName("Dollar.times(2) Test")
     @Test
     void testMultiplication() {
-        Dollar five = new Dollar(5);
-
-        // Multiply by 2
-        Dollar product = five.times(2);
-
-        // Assert that we have 10 dollars
-        assertEquals(new Dollar(10), product);
-
-        // Assert for 15
-        product = five.times(3);
-        assertEquals(new Dollar(15), product);
+        Money five = Money.dollar(5);
+        assertEquals(Money.dollar(10), five.times(2));
+        assertEquals(Money.dollar(15), five.times(3));
     }
 
-    @DisplayName("Dollar.equals() test.")
+    @DisplayName("Dollar.equals() Test")
     @Test
     void equalityTest() {
-        assertEquals(new Dollar(10), new Dollar(10));
-        assertNotEquals(new Dollar(10), null);
-        assertNotEquals(new Dollar(10), new Dollar(5));
+        assertEquals(Money.dollar(10), Money.dollar(10));
+        assertNotEquals(Money.dollar(10), null);
+        assertNotEquals(Money.dollar(10), Money.dollar(5));
+        assertNotEquals(Money.dollar(5), Money.franc(5));
     }
 
     @DisplayName("Franc.times() Test")
     @Test
     void testFrancMultiplication() {
-        Franc franc = new Franc(5);
-
-        // Multiply by 2
-        Franc product = franc.times(2);
-
-        // Assert that we have 10 francs
-        assertEquals(new Franc(10), product);
-
-        // Assert for 15
-        product = franc.times(3);
-        assertEquals(new Franc(15), product);
+        Money franc = Money.franc(5);
+        assertEquals(Money.franc(10), franc.times(2));
+        assertEquals(Money.franc(15), franc.times(3));
     }
 
-    @DisplayName("Franc.equals() test.")
+    @DisplayName("Franc.equals() Test")
     @Test
     void francEqualityTest() {
-        assertEquals(new Franc(10), new Franc(10));
-        assertNotEquals(new Franc(10), null);
-        assertNotEquals(new Franc(10), new Franc(5));
+        assertEquals(Money.franc(10), Money.franc(10));
+        assertNotEquals(Money.franc(10), null);
+        assertNotEquals(Money.franc(10), Money.franc(5));
     }
 }

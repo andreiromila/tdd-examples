@@ -8,17 +8,11 @@ public class Dollar extends Money {
      * @param amount {@link Integer} The base amount
      */
     public Dollar(Integer amount) {
-        super(amount);
+        super(amount, "USD");
     }
 
-    /**
-     * Multiplies the current amount by the indicated multiplier and returns a new
-     * Dollar instance.
-     * 
-     * @param multiplier {@link Integer} The multiplier that we'll multiply by
-     * @return {@link Dollar} A new instance of the object
-     */
-    public Dollar times(int multiplier) {
-        return new Dollar(this.amount * multiplier);
+    @Override
+    public Money times(int multiplier) {
+        return new Dollar(amount * multiplier);
     }
 }
