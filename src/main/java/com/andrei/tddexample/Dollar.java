@@ -1,19 +1,14 @@
 package com.andrei.tddexample;
 
-public class Dollar {
-
-    /**
-     * Contains the amount the object holds
-     */
-    private int amount;
+public class Dollar extends Money {
 
     /**
      * Default constructor for the Dollar class
      * 
      * @param amount {@link Integer} The base amount
      */
-    public Dollar(int amount) {
-        this.amount = amount;
+    public Dollar(Integer amount) {
+        super(amount);
     }
 
     /**
@@ -26,21 +21,4 @@ public class Dollar {
     public Dollar times(int multiplier) {
         return new Dollar(this.amount * multiplier);
     }
-
-    /**
-     * The equals method implementation
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-
-        if (obj instanceof Dollar) {
-            return this.amount == ((Dollar) obj).amount;
-        }
-
-        return false;
-    }
-
 }

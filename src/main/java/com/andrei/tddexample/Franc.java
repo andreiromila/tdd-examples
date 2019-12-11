@@ -3,20 +3,15 @@ package com.andrei.tddexample;
 /**
  * Franc
  */
-public class Franc {
-
-    /**
-     * Contains the amount the object holds
-     */
-    private int amount;
+public class Franc extends Money {
 
     /**
      * Default constructor for the Franc class
      * 
      * @param amount {@link Integer} The base amount
      */
-    public Franc(int amount) {
-        this.amount = amount;
+    public Franc(Integer amount) {
+        super(amount);
     }
 
     /**
@@ -28,22 +23,6 @@ public class Franc {
      */
     public Franc times(int multiplier) {
         return new Franc(this.amount * multiplier);
-    }
-
-    /**
-     * The equals method implementation
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-
-        if (obj instanceof Franc) {
-            return this.amount == ((Franc) obj).amount;
-        }
-
-        return false;
     }
 
 }
