@@ -11,12 +11,16 @@ import org.junit.jupiter.api.Test;
  */
 public class MoneyTest {
 
-    @DisplayName("Dollar.times(2) Test")
+    @DisplayName("Money.times(2) Test")
     @Test
     void testMultiplication() {
-        Money five = Money.dollar(5);
-        assertEquals(Money.dollar(10), five.times(2));
-        assertEquals(Money.dollar(15), five.times(3));
+        Money dollar = Money.dollar(5);
+        assertEquals(Money.dollar(10), dollar.times(2));
+        assertEquals(Money.dollar(15), dollar.times(3));
+
+        Money franc = Money.franc(5);
+        assertEquals(Money.franc(20), franc.times(4));
+        assertEquals(Money.franc(35), franc.times(7));
     }
 
     @DisplayName("Dollar.equals() Test")
@@ -25,20 +29,9 @@ public class MoneyTest {
         assertEquals(Money.dollar(10), Money.dollar(10));
         assertNotEquals(Money.dollar(10), null);
         assertNotEquals(Money.dollar(10), Money.dollar(5));
+
         assertNotEquals(Money.dollar(5), Money.franc(5));
-    }
 
-    @DisplayName("Franc.times() Test")
-    @Test
-    void testFrancMultiplication() {
-        Money franc = Money.franc(5);
-        assertEquals(Money.franc(10), franc.times(2));
-        assertEquals(Money.franc(15), franc.times(3));
-    }
-
-    @DisplayName("Franc.equals() Test")
-    @Test
-    void francEqualityTest() {
         assertEquals(Money.franc(10), Money.franc(10));
         assertNotEquals(Money.franc(10), null);
         assertNotEquals(Money.franc(10), Money.franc(5));
