@@ -3,7 +3,7 @@ package com.andrei.tddexample;
 /**
  * Money
  */
-public abstract class Money {
+public class Money {
 
     /**
      * Contains the amount the object holds
@@ -16,21 +16,21 @@ public abstract class Money {
     protected String currency;
 
     /**
-     * Returns a new Dollar instance
+     * Returns a new Money instance
      * 
-     * @return {@link Dollar} A new Dollar instance
+     * @return {@link Money} A new Money instance
      */
     public static Money dollar(Integer amount) {
-        return new Dollar(amount);
+        return new Money(amount, "USD");
     }
 
     /**
-     * Returns a new Franc instance
+     * Returns a new Money instance
      * 
-     * @return {@link Franc} A new Franc instance
+     * @return {@link Money} A new Money instance
      */
     public static Money franc(Integer amount) {
-        return new Franc(amount);
+        return new Money(amount, "CHF");
     }
 
     /**
@@ -50,7 +50,9 @@ public abstract class Money {
      * @param multiplier {@link Integer} The multiplier that we'll multiply by
      * @return {@link Money} A new instance of the object
      */
-    public abstract Money times(int multiplier);
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, this.currency);
+    }
 
     /**
      * The equals method implementation
@@ -70,4 +72,10 @@ public abstract class Money {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Money [amount=" + amount + ", currency=" + currency + "]";
+    }
+
 }
